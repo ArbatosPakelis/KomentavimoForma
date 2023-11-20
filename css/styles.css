@@ -1,0 +1,72 @@
+h1 {
+text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+form {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+
+input{
+    padding:10px;
+    border-radius:5px;
+}
+
+div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.firstLine{
+    display: inline-block;
+}
+
+.secondLine{
+    width: 95%;
+    display: inline-block;
+}
+
+.big
+{
+    padding:10px;
+    border-radius:5px;
+    height: 200px;
+    width: 100%;
+}
+
+.submitButton{
+    padding:10px;
+    border-radius:5px;
+}
+
+.replyButton {
+    float: right;
+}
+
+.comment {
+    display: block;
+    padding: 10px;
+    min-height: 100px;
+    min-width: 200px;
+    background-color: lightsteelblue;
+    border-radius: 5px;
+    border-color: darkgray;
+    margin-bottom: 10px; 
+}
+
+.commentSection {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex;
+}
