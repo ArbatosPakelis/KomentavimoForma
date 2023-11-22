@@ -26,25 +26,6 @@ class CommentSection {
 
         return $output;
     }
-
-    public function fetchAndRenderComments()
-    {
-        $output = '';
-        require_once 'Comment.php';
-        $query = "SELECT * FROM comments ORDER BY CreatedAt DESC";
-        $stmt = $this->pdo->prepare($query);
-
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $comment = new Comment($row, $this->pdo);
-                $output .= $comment->render();
-            }
-        }
-
-        return $output;
-    }
 }
 
 ?>

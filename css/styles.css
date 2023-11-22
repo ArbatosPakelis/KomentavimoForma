@@ -38,7 +38,7 @@ div{
 {
     padding:10px;
     border-radius:5px;
-    height: 200px;
+    height: 100px;
     width: 100%;
 }
 
@@ -61,6 +61,8 @@ div{
 
 .replyButton {
     float: right;
+    padding:5px;
+    border-radius:5px;
 }
 
 .comment {
@@ -68,10 +70,20 @@ div{
     padding: 10px;
     min-height: 100px;
     min-width: 200px;
-    background-color: lightsteelblue;
+    background-color: #EBEDEF;
     border-radius: 5px;
-    border-color: darkgray;
-    margin-bottom: 10px; 
+}
+
+.reply {
+    margin-top: 5px;
+    margin-left: 20px;
+    display: block;
+    padding: 10px;
+    min-height: 100px;
+    min-width: 200px;
+    background-color: #EBEDEF;
+    border-radius: 5px;
+    width: 80%;
 }
 
 .commentSection {
@@ -89,4 +101,26 @@ div{
     margin-left: auto;
     margin-right: auto;
     align-items: flex;
+}
+
+.Font1{
+    font-family: 'Courier New', monospace;
+}
+
+.Font2{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: small;
+}
+
+.replies{
+    border: solid black;
+    background-color: white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
