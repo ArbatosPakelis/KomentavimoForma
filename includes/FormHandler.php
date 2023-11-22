@@ -42,14 +42,14 @@ class FormHandler {
 
             try {
                 if($additionalIdentifier == "comment"){
-                    $query = "INSERT INTO comments (Email, Name, Content) VALUES (?, ?, ?);";
+                    $query = "INSERT INTO comments (Email, Name, Content, CreatedAt) VALUES (?, ?, ?, ?);";
                     $stmt = $this->pdo->prepare($query);
-                    $stmt->execute([$email, $name, $comment]);
+                    $stmt->execute([$email, $name, $comment, date("Y-m-d h:i:s")]);
                 }
                 elseif (is_numeric($additionalIdentifier)) {
-                    $query = "INSERT INTO replies (Email, Name, Content, Comment_FK) VALUES (?, ?, ?, ?);";
+                    $query = "INSERT INTO replies (Email, Name, Content, CreatedAt, Comment_FK) VALUES (?, ?, ?, ?, ?);";
                     $stmt = $this->pdo->prepare($query);
-                    $stmt->execute([$email, $name, $comment, $additionalIdentifier]);
+                    $stmt->execute([$email, $name, $comment, date("Y-m-d h:i:s"), $additionalIdentifier]);
                 } else {
                 // Handle the case where the identifier is neither "comment" nor a number
                 throw new Exception("Invalid additional identifier");
