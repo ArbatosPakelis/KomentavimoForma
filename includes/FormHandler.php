@@ -3,6 +3,7 @@
 class FormHandler {
     private $pdo;
 
+    // add database connection
     public function __construct(PDO $pdo) {
         $this->pdo = $pdo;
     }
@@ -15,6 +16,7 @@ class FormHandler {
             $comment = isset($_POST["comment"]) ? trim($_POST["comment"]) : '';
             $additionalIdentifier = isset($_POST["additional_identifier"]) ? $_POST["additional_identifier"] : '';
     
+            //error handlinng
             $errorMessages = [];
     
             if (empty($email)) {
@@ -41,6 +43,7 @@ class FormHandler {
             }
 
             try {
+                // checking wheather we want to handle comment or reply form
                 if($additionalIdentifier == "comment"){
                     $query = "INSERT INTO comments (Email, Name, Content, CreatedAt) VALUES (?, ?, ?, ?);";
                     $stmt = $this->pdo->prepare($query);
@@ -51,8 +54,7 @@ class FormHandler {
                     $stmt = $this->pdo->prepare($query);
                     $stmt->execute([$email, $name, $comment, date("Y-m-d h:i:s"), $additionalIdentifier]);
                 } else {
-                // Handle the case where the identifier is neither "comment" nor a number
-                throw new Exception("Invalid additional identifier");
+                    throw new Exception("Invalid additional identifier");
                 }
 
                 // Redirect to the index.php page

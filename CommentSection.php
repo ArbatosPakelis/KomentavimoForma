@@ -7,6 +7,7 @@ class CommentSection {
         $this->pdo = $pdo;
     }
 
+    // render comment section
     public function renderComments() {
         $output = '';
         require_once 'Comment.php';

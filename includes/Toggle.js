@@ -1,4 +1,4 @@
-
+// toggle reply form visability
 function toggleReplyForm(commentID) {
     var replyForm = document.getElementById("replyForm" + commentID);
     if (replyForm.style.display === "none") {
@@ -8,6 +8,7 @@ function toggleReplyForm(commentID) {
     }
 }
 
+// togle visability of replies section
 function toggleReply(commentID) {
     var reply = document.getElementById("replySection" + commentID);
     if (reply) {

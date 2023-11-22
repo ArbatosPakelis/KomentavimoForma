@@ -2,11 +2,13 @@
 class Comment {
     private $row;
 
+    // constructor
     public function __construct($row, $pdo) {
         $this->row = $row;
         $this->pdo = $pdo;
     }
 
+    // render single comment
     public function render() {
         $createdAt = $this->row["CreatedAt"];
         $formattedDate = date("Y-m-d", strtotime($createdAt));
@@ -35,6 +37,7 @@ class Comment {
         return $output;
     }
 
+    // render single reply
     public function renderReply() {
         $createdAt = $this->row["CreatedAt"];
         $formattedDate = date("Y-m-d", strtotime($createdAt));
@@ -50,6 +53,7 @@ class Comment {
         return $output;
     }
 
+    //render replies section
     private function renderReplies($commentID) {
         $query = "SELECT * FROM replies WHERE Comment_FK =" . $this->row["Id"] . "  ORDER BY CreatedAt DESC";
         $stmt = $this->pdo->prepare($query);

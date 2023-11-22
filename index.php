@@ -24,6 +24,7 @@ session_start();
                         method: 'POST',
                         data: formData,
                         success: function (response) {
+                            // Perform Ajax request to renew comment section
                             $.ajax({
                                 url: 'CommentSection.php',
                                 method: 'GET',
@@ -48,6 +49,7 @@ session_start();
         <h1>Comment form</h1>
         <hr>
         <?php
+        // warning field
         if (isset($_SESSION['error_message'])) {
             echo '<div class="warning">' . $_SESSION['error_message'] . '</div>';
             unset($_SESSION['error_message']);
@@ -55,6 +57,7 @@ session_start();
         ?>
         <div id="commentForm">
             <?php
+            // comment form
             require_once 'CommentForm.php';
             $commentForm = new CommentForm();
             echo $commentForm->renderForm("comment");
@@ -62,6 +65,7 @@ session_start();
         </div>
         <div class="commentSection">
             <?php
+                // comment section
                 require_once "CommentSection.php";
                 require_once 'includes/dbh.inc.php';
                 $commentSectionRenderer = new CommentSection($pdo);
