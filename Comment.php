@@ -21,7 +21,7 @@ class Comment {
                             <i style=\"font-size:24px\" class=\"fa\">&#xf112;</i>
                             </button>
                         </div>
-                        <div class=\"Font1\">" . $this->row["Content"] . "</div> 
+                        <div class=\"Font1\">" . htmlspecialchars($this->row["Content"], ENT_QUOTES, 'UTF-8') . "</div> 
                         <div id=\"replyForm" . $this->row["Id"] . "\" style=\"display:none;\">";
 
         require_once 'CommentForm.php';
@@ -47,7 +47,7 @@ class Comment {
                             <div><b>" . $this->row["Name"] . "</b></div>
                             <div class=\"Font2\">" . $formattedDate . "</div>
                         </div>
-                        <div class=\"Font1\">" . $this->row["Content"] . "</div> 
+                        <div class=\"Font1\">" . htmlspecialchars($this->row["Content"], ENT_QUOTES, 'UTF-8') . "</div> 
                     </div>";
 
         return $output;
